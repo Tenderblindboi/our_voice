@@ -6,12 +6,10 @@
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
   <link rel="stylesheet"  href="{{ url_for('static', filename='css/style.css')}}">
-
-
-
 </head>
 
 <body>
+	<script src="https://d3js.org/d3.v5.min.js"></script>
 <header>
 	<div>
 		<img src="{{ url_for('static', filename='img/logo.png')}}" alt="logo" class="logo">
@@ -23,26 +21,16 @@
 				<li><a href="{{ url_for('lillian')}}">Lillian</a></li>
 				<li><a href="{{ url_for('simon')}}">Simon</a></li>
 				<li><a href="{{ url_for('map')}}">map</a></li>
-
-
-
-
 			</ul>
-
-
 		</nav>
-
 	</div>
-
 </header>
 
+<canvas id="canvas" class="offscreen">
 
+</canvas>
 
 <p id="demo", class ="rcorners1"></p>
-
-
-
-
 
 <script>
 

@@ -34,9 +34,11 @@
 		var currentFrame = 0;
 
 		var character = new Image();
-		character.src ="{{ url_for('static', filename='img/talking.png')}}";
+		character.src = "static/img/talking.png";
+		console.log(character.src)
 
 		var canvas = document.getElementById('canvas');
+		console.log(canvas);
 		canvas.width =canWidth;
 		canvas.height = canHeight;
 
