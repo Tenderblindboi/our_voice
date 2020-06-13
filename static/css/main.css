@@ -1,0 +1,33 @@
+head {
+
+	margin: 0;
+	font-family: serif;
+
+
+
+}
+
+.box{
+position: relative;
+width: 100px;
+height: 100px;
+margin: 4px;
+display: inline-block;
+
+}
+
+.arrow-down {
+position: relative;
+width: 0;
+height: 0;
+border-left: 40px transparent;
+border-right: 40px transparent;
+border-top: 40px transparent;
+
+
+}
+
+.red{background-color:red}
+.blue{background-color:blue}
+.green{background-color:green}
+.yellow{background-color:yellow}

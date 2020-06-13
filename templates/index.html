@@ -1,0 +1,106 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet"  href="{{ url_for('static', filename='css/style.css')}}">
+
+
+
+
+</head>
+
+<body>
+
+<header>
+	<div>
+		<img src="logo.png" alt="logo" class="logo">
+
+		<nav>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Lillian</a></li>
+				<li><a href="{{ url_for('index')}}">Ro</a></li>
+				<li><a href="#">Simon</a></li>
+
+
+
+
+			</ul>
+
+
+		</nav>
+
+	</div>
+
+</header>
+
+
+
+
+
+
+
+<svg width="600" height="500"></svg>
+
+<p id="demo", class ="rcorners1"></p>
+
+
+
+
+
+<script>
+
+var i = 0;
+var txt = 'Welcome to Our Voices a page that we made in order to animate our Journey with coming to terms with our racial identity. If you notice in the tabs there are various names, each with a different story';
+var speed = 50;
+
+function typeWriter() {
+
+	
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    
+    setTimeout(typeWriter, speed);
+
+
+   
+  }
+
+  
+
+
+ }
+
+
+</script>
+
+<canvas id='canvas', class="offscreen">
+		
+
+</canvas>
+
+
+
+<script>
+document.getElementById("demo").addEventListener("click", typeWriter);
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "";
+}
+</script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.js" integrity="sha256-nnFnuz7rC1JLnvsb8M7A9aXcRHTpUN4vYA26t2UO+dQ=" crossorigin="anonymous"></script>
+
+<script src="{{ url_for('static', filename='js/main.js')}}"></script>
+<script src="{{ url_for('static', filename='js/ro.js')}}"></script>
+<script src="{{ url_for('static', filename='js/talking.js')}}"></script>
+
+
+</body>
+</html>

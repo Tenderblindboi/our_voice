@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Mapbox Language Buttons with custom Markers</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' />
+    <!--link to css file in static folder
+    <link rel="stylesheet" type="text/css" href="../css/style.css">-->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        /* map declaration */
+        
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        /*style markers for custom HTML markers, copy and paste the code inside your style tag below the #map declaration.*/
+        /*.marker {
+            background-image: url(../"IMG_8835.jpg");
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }*/
+    </style>
+</head>
+
+<body>
+    <style>
+        #buttons {
+            width: 90%;
+            margin: 0 auto;
+        }
+        
+        .button {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            width: 20%;
+            padding: 8px;
+            border-radius: 3px;
+            margin-top: 10px;
+            font-size: 12px;
+            text-align: center;
+            color: #fff;
+            background: #1606a7;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+    </style>
+
+    <div id='map'></div>
+    <ul id='buttons'>
+        <li id='button-en' class='button'>English</li>
+        <li id='button-ar' class='button'>Arabic</li>
+        <li id='button-fr' class='button'>French</li>
+        <li id='button-es' class='button'>Spanish</li>
+    </ul>
+
+    <!--<p><a href="https://wallpapersafari.com/funniest-wallpaper-in-the-world/">Funniest Wallpaper in the World</a></p>code for popup-->
+
+
+    <script>
+        //Mapbox GL JS components: container:"id", -map- style: URL for map style Center: lat,lng zoom:varies
+        mapboxgl.accessToken = 'pk.eyJ1IjoibGdvdGJlcmciLCJhIjoiY2thanFnbzZvMGJ0MTJxcGVwM3B4cnY0dyJ9.P-1k1xTCGmy-2g1-VtOBlg';
+
+        document
+            .getElementById('buttons').addEventListener('click', function(event) {
+                var language = event.target.id.substr('button-'.length);
+                map.setLayoutProperty('country-label', 'text-field', ['get', 'name_' + language])
+            });
+        //map object declaration
+        var map = new mapboxgl.Map({
+            container: 'map',
+            // to change map style, add lat & lng
+            style: 'mapbox://styles/mapbox/light-v10',
+            center: [21, 9.5],
+            zoom: 1.5
+        });
+        // add markers to the map
+        //  geojson.features.forEach(function(marker) {
+        // create a HTML element for each feature
+        //  var el = document.createElement('div');
+        // el.className = 'marker';
+        // make a marker for each feature and add to the map
+        // new mapboxgl.Marker(el)
+        // .setLngLat(marker.geometry.coordinates)
+
+        //Attach popups to markers - after .setLngLat but before . addTo-map- method
+        //new mapboxgl.Marker(el)
+        //.setLngLat(marker.geometry.coordinates)
+        //.setPopup(new mapboxgl.Popup({
+        //offset: 25
+        //}) // add popups
+        //.setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+        //.addTo(map);
+        //});
+        // add style popups code
+
+        //.mapboxgl - popup {
+        //max - width: 200 px;
+        //}
+        //.mapboxgl - popup - content {
+        //text - align: center;
+        //font - family: 'Open Sans', sans - serif;
+        //}
+
+        // geojson code goes inside script tags after the code that initializes your map.This code declares a variable geojson that is set equal to GeoJSON data.
+        var geojson = {
+            type: 'FeatureCollection',
+            features: [{
+                type: 'Feature',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [37.5407, 77.4360]
+                },
+                properties: {
+                    title: 'Mapbox',
+                    description: 'Richmond, Virginia'
+                }
+            }, {
+                type: 'Feature',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [13.68935, -89.18718]
+                },
+                properties: {
+                    title: 'Mapbox',
+                    description: 'San Salvador, El Salvador'
+                }
+            }, {
+                type: 'Feature',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [15.1879664, 39.7881626]
+                },
+                properties: {
+                    title: 'Mapbox',
+                    description: 'Eritrea'
+                }
+            }, {
+                type: 'Feature',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [13.067439, 80.237617]
+                },
+                properties: {
+                    title: 'Mapbox',
+                    description: 'Chennai, Tamil Nadu, India'
+                }
+            }]
+        };
+    </script>
+</body>
+
+</html>

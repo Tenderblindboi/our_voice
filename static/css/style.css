@@ -1,0 +1,132 @@
+body {
+
+
+	margin: 0;
+	background: #222;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 1000;
+	font-size: 30;
+}
+
+
+
+
+
+
+.box{
+position: relative;
+width: 100px;
+height: 100px;
+margin: 4px;
+display: inline-block;
+
+}
+
+.red{background-color:red}
+.blue{background-color:blue}
+.green{background-color:green}
+.yellow{background-color:yellow}
+
+
+
+.arrow-down {
+
+width: 0;
+height: 0;
+border-left: 40px transparent;
+border-right: 40px transparent;
+border-top: 40px solid blue;
+
+
+}
+
+.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-top: 50px solid #555;
+}
+
+
+.rcorners1 {
+  position: absolute;
+  border-radius: 15px 15px 15px 5px;
+  background: #c8a2c8;
+  padding: 20px; 
+  width: 400px;
+  height: 150px; 
+  left: 200px;
+  top: 300px;
+}
+
+.offscreen{
+	position: absolute;
+ 	
+  top: 300px;
+	left:200px;
+	border-style: solid; 
+
+
+
+}
+
+.resize {
+  max-width:50%;
+  max-height:50%;
+}
+
+.container{
+width: 80%
+margin: 0 auto;
+
+}
+
+header{
+	background: #3d3d3d;
+}
+
+header : after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+
+.logo {
+	float: left;
+	margin: : 50px;
+}
+
+nav {
+	
+}
+
+nav ul{
+	margin: 50px;
+	padding: 20px;
+	list-style: none;
+
+}
+
+nav li{
+	
+	display: inline-block;
+	margin-left: 100px;
+	padding-top: 80px;
+}
+
+nav a {
+	color: #55d6aa;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 30px;
+	-webkit-text-stroke: 1px black;
+
+
+
+}
+
+.bar {
+            fill: steelblue;
+ }
