@@ -54,9 +54,23 @@ border-top: 40px solid blue;
   border-radius: 15px 15px 15px 5px;
   background: #c8a2c8;
   padding: 20px; 
-  width: 400px;
+  width: 600px;
+  height: 250px; 
+  left: -200px;
+  top: 400px;
+}
+
+
+
+
+.rcorners2 {
+  position: absolute;
+  border-radius: 15px 15px 15px 15px;
+  background: white;
+  padding: 20px; 
+  width: 600px;
   height: 150px; 
-  left: 200px;
+  left:-200px;
   top: 300px;
 }
 
@@ -64,12 +78,24 @@ border-top: 40px solid blue;
 	position: absolute;
  	
   top: 300px;
-	left:200px;
+	left:-200px;
 	border-style: solid; 
 
 
 
 }
+
+.offscreen1{
+	position: absolute;
+ 	
+  top: 300px;
+	left:1000px;
+	border-style: solid; 
+
+
+
+}
+
 
 .resize {
   max-width:50%;

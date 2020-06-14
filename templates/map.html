@@ -24,14 +24,14 @@
             width: 100%;
         }
         /*style markers for custom HTML markers, copy and paste the code inside your style tag below the #map declaration.*/
-        /*.marker {
+        .marker {
             background-image: url(../"IMG_8835.jpg");
             background-size: cover;
             width: 50px;
             height: 50px;
             border-radius: 50%;
             cursor: pointer;
-        }*/
+        }
     </style>
 </head>
 
@@ -87,35 +87,35 @@
             center: [21, 9.5],
             zoom: 1.5
         });
-        // add markers to the map
-        //  geojson.features.forEach(function(marker) {
-        // create a HTML element for each feature
-        //  var el = document.createElement('div');
-        // el.className = 'marker';
-        // make a marker for each feature and add to the map
-        // new mapboxgl.Marker(el)
-        // .setLngLat(marker.geometry.coordinates)
+        add markers to the map
+         geojson.features.forEach(function(marker) {
+        //create a HTML element for each feature
+         var el = document.createElement('div');
+        el.className = 'marker';
+        //make a marker for each feature and add to the map
+        new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
 
         //Attach popups to markers - after .setLngLat but before . addTo-map- method
-        //new mapboxgl.Marker(el)
-        //.setLngLat(marker.geometry.coordinates)
-        //.setPopup(new mapboxgl.Popup({
-        //offset: 25
-        //}) // add popups
-        //.setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
-        //.addTo(map);
-        //});
-        // add style popups code
+        new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .setPopup(new mapboxgl.Popup({
+        offset: 25
+        }) // add popups
+        .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+        .addTo(map);
+        });
+        //add style popups code
 
-        //.mapboxgl - popup {
-        //max - width: 200 px;
-        //}
-        //.mapboxgl - popup - content {
-        //text - align: center;
-        //font - family: 'Open Sans', sans - serif;
-        //}
+        .mapboxgl - popup {
+        max - width: 200 px;
+        }
+        .mapboxgl - popup - content {
+        text - align: center;
+        font - family: 'Open Sans', sans - serif;
+        }
 
-        // geojson code goes inside script tags after the code that initializes your map.This code declares a variable geojson that is set equal to GeoJSON data.
+        //geojson code goes inside script tags after the code that initializes your map.This code declares a variable geojson that is set equal to GeoJSON data.
         var geojson = {
             type: 'FeatureCollection',
             features: [{

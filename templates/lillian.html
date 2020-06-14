@@ -12,7 +12,7 @@
             fill: steelblue;
         }
     </style>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
+     <script src="https://d3js.org/d3.v5.min.js"></script>
 <body>
 
 
@@ -39,7 +39,55 @@
 	</div>
 
 </header>
-<svg width="600" height="500"></svg>
+
+
+
+<p id="demo", class ="rcorners1"></p>
+
+<script>
+
+var i = 0;
+var txt = 'In the midst of the civil war in El Salvador, my mother and her parents arranged for me to be brought to the United States at the age of 11 months old. None of us knew English and came with little skill, no money but much hope. My father and most of his family were among the 75,000 casualties of this12 + year civil war. I was raised in Los Angeles, California in what was deemed the inner city. It was common to welcome other central american and mexican newcomers who came with grave stories of escaping poverty, hunger or violence in their countries of origin. The common thread was the desire to survive.';
+var speed = 25;
+
+function typeWriter() {
+
+    
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    
+    setTimeout(typeWriter, speed);
+
+
+   
+  }
+
+  
+
+
+ }
+
+
+</script>
+
+
+
+
+
+<script>
+document.getElementById("demo").addEventListener("click", typeWriter);
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "";
+}
+</script>
+
+
+
+
+
+<svg width="800" height="800"></svg>
 <script>
 
     var svg = d3.select("svg"),
@@ -52,7 +100,7 @@
        .attr("x", 50)
        .attr("y", 50)
        .attr("font-size", "24px")
-       .text("Indian Population in every State")
+       .text("El Salvadorian Population in every State (Percentage)")
 
     var xScale = d3.scaleBand().range([0, width]).padding(0.4),
         yScale = d3.scaleLinear().range([height, 0]);
@@ -60,27 +108,24 @@
     var g = svg.append("g")
                .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
-    d3.csv("TotalUSPop.csv", function(error, data) {
-        if (error) {
-            throw error;
-        }
-
+    d3.csv("static/data/TotalUSPop.csv").then(function(data) {
+        console.log(data);
         xScale.domain(data.map(function(d) { return d.StateName; }));
-        yScale.domain([0, d3.max(data, function(d) { return d.India; })]);
+        yScale.domain([0, d3.max(data, function(d) { return d.ElSalvadorian; })]);
 
         g.append("g")
          .attr("transform", "translate(0," + height + ")")
          .call(d3.axisBottom(xScale))
          .append("text")
-         .attr("y", height - 250)
+         .attr("y", height - 550)
          .attr("x", width - 100)
          .attr("text-anchor", "end")
-         .attr("stroke", "black")
-         .text("Year");
+         .attr("stroke", "white")
+         .text("State");
 
         g.append("g")
          .call(d3.axisLeft(yScale).tickFormat(function(d){
-             return "$" + d;
+             return  d;
          })
          .ticks(10))
          .append("text")
@@ -88,18 +133,21 @@
          .attr("y", 6)
          .attr("dy", "-5.1em")
          .attr("text-anchor", "end")
-         .attr("stroke", "black")
-         .text("Stock Price");
+         .attr("stroke", "white")
+         .text("Percent of Population");
 
         g.selectAll(".bar")
          .data(data)
          .enter().append("rect")
          .attr("class", "bar")
          .attr("x", function(d) { return xScale(d.StateName); })
-         .attr("y", function(d) { return yScale(d.India); })
+         .attr("y", function(d) { return yScale(d.ElSalvadorian); })
          .attr("width", xScale.bandwidth())
-         .attr("height", function(d) { return height - yScale(d.India); });
+         .attr("height", function(d) { return height - yScale(d.ElSalvadorian); });
     });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.js" integrity="sha256-nnFnuz7rC1JLnvsb8M7A9aXcRHTpUN4vYA26t2UO+dQ=" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/main.js')}}"></script>
+
 </body>
 </html>

@@ -5,7 +5,7 @@ anime({
 	
 
 	translateX: [
-		{ value: 700, duration: 1000},
+		{ value: 200, duration: 1000},
 		
 		
 	],
@@ -37,3 +37,41 @@ anime({
 });
 
 
+anime({
+
+	targets: 'p.rcorners2',
+	
+
+	translateX: [
+		{ value: 1000, duration: 1000},
+		
+		
+	],
+
+
+	
+  
+  easing: 'spring(1, 80, 10, 0)'
+
+
+});
+
+
+anime({
+
+	targets: 'img.offscreen1',
+	
+
+	translateX: [
+		{ value: 1000, duration: 1000},
+		
+		
+	],
+
+
+	
+  
+  easing: 'spring(1, 80, 10, 0)'
+
+
+});
